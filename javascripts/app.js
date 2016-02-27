@@ -6,11 +6,10 @@ var height = mapSvg.attr("height");
 var width = mapSvg.attr("width");
 
 d3.json("javascripts/worldPaths.json", function(error, world) {
-	worldObjects = world;
 	if(error) {
 		console.log("after json");
 	}
-	var countries = topojson.feature(world, world.objects.countries).features;
+	var countries = world.features;
 
 	countries.forEach(function(country){
 		g.append("path")
