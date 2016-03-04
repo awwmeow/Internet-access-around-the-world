@@ -74,7 +74,7 @@ d3.json("javascripts/worldPaths.json", function(error, world) {
 				.attr("y", 550)
 				.attr("width", 1000)
 				.attr("height", 20)
-				.style("stroke","#d9d9d9")
+				.style("stroke","none")
 				.attr('fill', 'url(#gradient)');
 
 		for(var i =0; i<minCountry.length-5; i++) {
