@@ -1,8 +1,19 @@
+body {
+	font-family: 'Josefin Slab', serif;
+}
+
+.title {
+	font-size: 35px;
+	text-align: center;
+	height: 20%;
+	-webkit-transform: translateY(30%);
+}
 .worldMap {
 	width: 100%;
 	text-align: center;
 	position: relative;
 }
+<<<<<<< HEAD
 
 .axis path { 
 	fill: none; stroke: black; 
@@ -22,4 +33,10 @@ path.outline {
 
 path.plot { 
 	fill: none; stroke-width: 3; 
+=======
+#map {
+	left: 50%;
+	position: relative;
+	-webkit-transform: translateX(-50%);
+>>>>>>> 311a29d31604cee606c8ba93c2ec74222ab41612
 }
