@@ -3,3 +3,23 @@
 	text-align: center;
 	position: relative;
 }
+
+.axis path { 
+	fill: none; stroke: black; 
+}
+
+.axis line { 
+	stroke: black; 
+}
+
+.axis text { 
+	font-size: 10pt; 
+}
+
+path.outline { 
+	fill: none; stroke-width: 5;
+}
+
+path.plot { 
+	fill: none; stroke-width: 3; 
+}
