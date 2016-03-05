@@ -1,4 +1,4 @@
-var mapSvg = d3.select('#map').append("svg").attr("width", "100%").attr("height", "1000px").attr("class","worldMap");
+var mapSvg = d3.select('#map').append("svg").attr("width", "100%").attr("height", "500px").attr("class","worldMap");
 var projection = d3.geo.equirectangular().translate([600, 240]).scale(250); 
 var path = d3.geo.path().projection(projection);
 var height = mapSvg.attr("height");

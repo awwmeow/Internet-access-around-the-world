@@ -13,7 +13,6 @@ body {
 	text-align: center;
 	position: relative;
 }
-<<<<<<< HEAD
 
 .axis path { 
 	fill: none; stroke: black; 
@@ -33,10 +32,21 @@ path.outline {
 
 path.plot { 
 	fill: none; stroke-width: 3; 
-=======
-#map {
+}
+
+.linePlotClass {
+	position: relative;
+	left: 50%;
+	-webkit-transform : translateX(-50%);
+}
+
+#map{
 	left: 50%;
 	position: relative;
 	-webkit-transform: translateX(-50%);
->>>>>>> 311a29d31604cee606c8ba93c2ec74222ab41612
+}
+#us-map {
+	left: 50%;
+	position: relative;
+	-webkit-transform: translateX(-40%);
 }
