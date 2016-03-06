@@ -1,19 +1,14 @@
-
-var linePlotSvg = d3.select("#linePlot").append("svg")
-.attr("width", "800").attr("height", "400").attr("class","linePlotClass");
+(function(){
+var linePlotSvg = d3.select("#internetLinePlot").append("svg")
+.attr("width", "800").attr("height", "500").attr("class","linePlotClass");
 
 var dataset;
-
-d3.json("javascripts/worldData.json", function (error, JSONData) {
-	if (error) return console.warn(error);
-	dataset = JSONData;
-});
 
 		
 var height = linePlotSvg.attr("height");
 var width = linePlotSvg.attr("width");
 
-var padding = 50;
+var padding = 80;
 var xScale = d3.scale.linear().domain([1990, 2015]).range([padding, width-padding]);
 var yScale = d3.scale.linear().domain([0, 100]).range([height - padding, padding]);
 
@@ -51,7 +46,23 @@ rows.forEach(function(country) {
 		}
 			
 	});
-
+var countries = ["United States","China","India","Mexico","Libya"];
+var colors = ["red","blue","green","purple","black"];
+for(var i=1; i<6; i++) {
+	linePlotSvg.append("circle")
+					 .attr("cx", 130*i)
+					 .attr("cy", 470)
+					 .attr("r",6)
+					 .style("fill", colors[i-1])
+	linePlotSvg.append("text")
+					 .attr("x", (130*i)+10)
+					 .attr("y", 474)
+					 .text(countries[i-1])
+}
+linePlotSvg.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (padding/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Internet penetration per 100 people");
 	linePlotSvg.append("path").attr("d", line(dict["United States"]))
 	.attr("class", "outline").style("stroke", "red");
 	linePlotSvg.append("path").attr("d", line(dict["China"]))
@@ -63,5 +74,7 @@ rows.forEach(function(country) {
 	linePlotSvg.append("path").attr("d", line(dict["Germany"]))
 	.attr("class", "outline").style("stroke", "black");
 });
+
+})();
 
 

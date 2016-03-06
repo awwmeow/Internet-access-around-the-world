@@ -1,7 +1,9 @@
 body {
 	font-family: 'Josefin Slab', serif;
 }
-
+h3 {
+	text-align: center;
+}
 .title {
 	font-size: 35px;
 	text-align: center;
@@ -27,7 +29,7 @@ body {
 }
 
 path.outline { 
-	fill: none; stroke-width: 5;
+	fill: none; stroke-width: 1;
 }
 
 path.plot { 
