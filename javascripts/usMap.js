@@ -14,11 +14,9 @@ var usMapPopulationScale = d3.scale.linear().domain([0.5 , 0.95]).range(["#fff7f
 d3.json("javascripts/states.json", function(error, shapes) {
 	if (error) throw error;
 	states = topojson.feature(shapes, shapes.objects.states).features;
-	console.log(states);
 
 	d3.csv("javascripts/iud.csv", function (error, rows) {
 		if (error) throw error;
-		console.log(rows); 
 
 		m = d3.map(rows, function (row) { 
 				return Number(row.id); 
