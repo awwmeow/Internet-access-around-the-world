@@ -23,7 +23,7 @@
 		countries = ["United States","China","India","Mexico","Libya"],
 		colors = ["red","blue","green","purple","black"];
 
-
+	/* Draw the axes*/
 	linePlotSvg.append("g").attr("transform", "translate(0," + (height - padding) + ")").attr("class", "axis")
 	.call(xAxis);
 	linePlotSvg.append("g").attr("transform", "translate(" + padding + ", 0" + ")").attr("class", "axis")
@@ -34,6 +34,29 @@
 			console.log("error in json");
 		}
 		var rows = entireJSONData.data; 
+		/* Read from CSV file and store into dictionary object, with keys as Country name and values as an array of objects of time and internet penetration value.
+			dict = {
+				"China" : [{
+							"Time" : 2014,
+							"Value" : 20
+						  },
+						  {
+							"Time" : 2013,
+							"Value" : 17
+						  },
+						  ...],
+				"United States" : [{
+									"Time" : 2014,
+									"Value" : 89
+								   },
+								   {
+									"Time" : 2013,
+									"Value" : 77
+								   },
+								   ....],
+			 	...
+			}
+		*/
 		rows.forEach(function(country) {
 				if(!dict[country.location]) {
 					dict[country.location] = [];
@@ -48,8 +71,8 @@
 					dict[country.location].push(currentRowDict);
 				}	
 		});
-
-	for(var i=1; i<6; i++) {
+	/* Drawing the lines, text and graph key for each country*/
+	for(var i=1; i<countries.length; i++) {
 		linePlotSvg.append("circle")
 						 .attr("cx", 130*i)
 						 .attr("cy", 470)
@@ -63,13 +86,10 @@
 											.attr("class", "outline")
 											.style("stroke", colors[i-1]);
 	}
-
+	/*Drawing the Y-axis label*/
 	linePlotSvg.append("text")
 	            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
 	            .attr("transform", "translate("+ (padding/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
 	            .text("Internet penetration per 100 people");
 	});
-
 })();
-
-

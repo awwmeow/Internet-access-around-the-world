@@ -1,5 +1,5 @@
 (function(){
-	var mapSvg = d3.select('#map').append("svg").attr("width", "1000").attr("height", "700px").attr("class","worldMap"),
+	var mapSvg = d3.select('#map').append("svg").attr("width", "1000").attr("height", "700").attr("class","worldMap"),
 		projection = d3.geo.equirectangular().translate([600, 240]).scale(250),
 		path = d3.geo.path().projection(projection),
 		height = mapSvg.attr("height"),
@@ -24,6 +24,20 @@
 			var countryNames = [];
 			var max =0, min =100;
 			var maxCountry= [], minCountry=[], maxCountryValue=[], minCountryValue = [], comparisonCountries = [], comparisonCountriesValues=[];
+			/* Read from CSV file and store into dictionary object, with keys as Country name and values as an object of time and mobile subscription value.
+			dict = {
+				"China" : [{
+							"Time" : 2014,
+							"Value" : 67
+						  }],
+				"United States" : [{
+									"Time" : 2014,
+									"Value" : 89
+								   }
+								   ],
+			 	...
+			}
+		*/
 			rows.forEach(function(country) {
 				if(country.Time == "2014-01-01T00:00:00Z") {
 					dict[country.location] = country.Value;
@@ -39,6 +53,7 @@
 					}
 				}				
 			});
+			/* Drawing the gradient scale*/
 			var gradient = mapSvg.append("svg:defs")
 							    .append("svg:linearGradient")
 							    .attr("id", "gradient")
@@ -66,6 +81,7 @@
 					.style("stroke","none")
 					.attr('fill', 'url(#gradient)');
 			
+			/*Plotting countries on the gradient scale*/
 			var j =0;
 			for(var i =0; i<5; i++) {
 				mapSvg.append("text")
@@ -84,16 +100,13 @@
 						.attr("y", 590)
 						.text("100")
 
-			
+			/*Filling the countries based on the value*/
 			countryPaths.selectAll("path")
 			.style("fill", function (country) {
 				var countryName = country.properties.name;
 				var value = dict[countryName];
 				if(!value) return "none";
 				return fillScale(value);
-			})
-			.on("mouseover", function(country) {
-				console.log(country.properties.name);
 			})
 		});
 	});

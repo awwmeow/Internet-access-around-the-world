@@ -19,7 +19,7 @@
 		dict = {},
 		countries = ["United States","China","India","Mexico","Libya"],
 		colors = ["red","blue","green","purple","black"];
-
+	/* Draw the axes*/
 	mobileLinePlotSvg.append("g")
 					 .attr("transform", "translate(0," + (height - padding) + ")")
 					 .attr("class", "axis")
@@ -31,10 +31,33 @@
 
 	d3.csv("javascripts/mobile.csv", function (error, entireCSVData) {
 		if(error) {
-			console.log("error in csv");
+			console.log("error in cs");
 		}
 		var rows = entireCSVData; 	
 		dict={};
+		/* Read from CSV file and store into dictionary object, with keys as Country name and values as an array of objects of time and mobile subscription value.
+			dict = {
+				"China" : [{
+							"Time" : 2014,
+							"Value" : 67
+						  },
+						  {
+							"Time" : 2013,
+							"Value" : 43
+						  },
+						  ...],
+				"United States" : [{
+									"Time" : 2014,
+									"Value" : 89
+								   },
+								   {
+									"Time" : 2013,
+									"Value" : 77
+								   },
+								   ....],
+			 	...
+			}
+		*/
 		rows.forEach(function(country){
 			countryArray = [];
 			for(key in country) {
@@ -47,7 +70,7 @@
 			}
 			dict[country["Country Name"]] = countryArray;
 		});
-
+	/* Drawing the lines, text and graph key for each country*/
 	for(var i=1; i<6; i++) {
 		mobileLinePlotSvg.append("circle")
 						 .attr("cx", 130*i)
@@ -63,7 +86,7 @@
 										.style("stroke", colors[i-1])
 										.style("stroke-dasharray", ("6, 6"));
 	}
-
+	/*Drawing the Y-axis label*/
 	mobileLinePlotSvg.append("text")
 	            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
 	            .attr("transform", "translate("+ (padding/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
