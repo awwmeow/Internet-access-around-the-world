@@ -13,24 +13,22 @@ h3 {
 
 .divider {
 	border-bottom: 2px solid #eee;
-	margin-top: 20px;
-}
-
-.description {
-	text-align: center;	
 }
 
 .title {
-	font-size: 35px;
+	font-size: 25px;
 	text-align: center;
 	height: 20%;
 	-webkit-transform: translateY(30%);
 }
-
 .worldMap {
 	width: 100%;
 	text-align: center;
 	position: relative;
+}
+
+.description {
+	text-align: center;
 }
 
 .axis path { 
