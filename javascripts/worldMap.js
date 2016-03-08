@@ -5,8 +5,8 @@
 		height = mapSvg.attr("height"),
 		width = mapSvg.attr("width"),
 		fillScale = d3.scale.linear().domain([0, 100]).range([ "#fff7f3", "#49006a"]),
-		digitScale = d3.scale.category10(),
-		comparisonCountries = ["China","Mexico", "India", "United States","Libya"];
+		digitScale = d3.scale.category10();
+		
 
 	d3.json("javascripts/worldPaths.json", function(error, world) {
 		if(error) {
@@ -53,6 +53,7 @@
 					}
 				}				
 			});
+			comparisonCountries = ["United States","Mexico","China", "India","Libya"];
 			/* Drawing the gradient scale*/
 			var gradient = mapSvg.append("svg:defs")
 							    .append("svg:linearGradient")

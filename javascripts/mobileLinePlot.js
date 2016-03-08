@@ -16,9 +16,7 @@
 		line = d3.svg.line()
 				 .x(function (d) { return xScale(d.Time); })
 				 .y(function (d) { return yScale(d.Value); }),
-		dict = {},
-		countries = ["United States","China","India","Mexico","Libya"],
-		colors = ["red","blue","green","purple","black"];
+		dict = {};
 	/* Draw the axes*/
 	mobileLinePlotSvg.append("g")
 					 .attr("transform", "translate(0," + (height - padding) + ")")
@@ -70,8 +68,10 @@
 			}
 			dict[country["Country Name"]] = countryArray;
 		});
+		var countries = ["United States","China","India","Mexico","Libya"];
+		var colors = ["red","blue","green","purple","black"];
 	/* Drawing the lines, text and graph key for each country*/
-	for(var i=1; i<6; i++) {
+	for(var i=1; i<=countries.length; i++) {
 		mobileLinePlotSvg.append("circle")
 						 .attr("cx", 130*i)
 						 .attr("cy", 470)

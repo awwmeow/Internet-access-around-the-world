@@ -19,9 +19,7 @@
 					  .orient("left"),
 		line = d3.svg.line()
 					 .x(function (d) { return xScale(d.Time); })
-					 .y(function (d) { return yScale(d.Value); }),
-		countries = ["United States","China","India","Mexico","Libya"],
-		colors = ["red","blue","green","purple","black"];
+					 .y(function (d) { return yScale(d.Value); });
 
 	/* Draw the axes*/
 	GDPlinePlotSvg.append("g").attr("transform", "translate(0," + (height - padding) + ")").attr("class", "axis")
@@ -68,9 +66,11 @@
 			}
 			dict[country["CountryName"]] = countryArray;
 		});
+		var countries = ["United States","China","India","Mexico","Libya"];
+		var colors = ["red","blue","green","purple","black"];
 
 		/* Drawing the lines, text and graph key for each country*/
-		for(var i=1; i<countries.length; i++) {
+		for(var i=1; i<=countries.length; i++) {
 			GDPlinePlotSvg.append("circle")
 							 .attr("cx", 130*i)
 							 .attr("cy", 470)
