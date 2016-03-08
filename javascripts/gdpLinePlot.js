@@ -28,7 +28,7 @@
 	.call(yAxis);
 
 
-	d3.csv("javascripts/GDPdataset.csv", function (error, GDPdata) {
+	d3.csv("datasets/GDPdataset.csv", function (error, GDPdata) {
 		var rows = GDPdata; 	
 		var dict = {};
 		/* Read from CSV file and store into dictionary object, with keys as Country name and values as an array of objects of time and GDP value.

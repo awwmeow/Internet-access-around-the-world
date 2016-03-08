@@ -19,7 +19,7 @@
 		.append("path")
 		.attr("d", path);
 
-		d3.json("javascripts/worldData.json", function (error, entireJSONData) {
+		d3.json("datasets/worldData.json", function (error, entireJSONData) {
 			var rows = entireJSONData.data; 
 			var countryNames = [];
 			var max =0, min =100;
@@ -93,12 +93,12 @@
 			}
 
 			mapSvg.append("text")
-						.attr("x", 100)
-						.attr("y", 590)
+						.attr("x", 80)
+						.attr("y", 565)
 						.text("0");
 			mapSvg.append("text")
-						.attr("x", 1070)
-						.attr("y", 590)
+						.attr("x", 1110)
+						.attr("y", 565)
 						.text("100")
 
 			/*Filling the countries based on the value*/

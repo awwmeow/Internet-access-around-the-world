@@ -27,7 +27,7 @@
 	linePlotSvg.append("g").attr("transform", "translate(" + padding + ", 0" + ")").attr("class", "axis")
 	.call(yAxis);
 
-	d3.json("javascripts/worldData.json", function (error, entireJSONData) {
+	d3.json("datasets/worldData.json", function (error, entireJSONData) {
 		if(error) {
 			console.log("error in json");
 		}

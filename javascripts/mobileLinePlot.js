@@ -27,7 +27,7 @@
 					 .attr("class", "axis")
 					 .call(yAxis);
 
-	d3.csv("javascripts/mobile.csv", function (error, entireCSVData) {
+	d3.csv("datasets/mobile.csv", function (error, entireCSVData) {
 		if(error) {
 			console.log("error in cs");
 		}
