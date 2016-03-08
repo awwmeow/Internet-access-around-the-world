@@ -84,7 +84,7 @@
 		mobileLinePlotSvg.append("path").attr("d", line(dict[countries[i-1]]))
 										.attr("class", "outline")
 										.style("stroke", colors[i-1])
-										.style("stroke-dasharray", ("6, 6"));
+										.style("stroke-dasharray", ("3, 3"));
 	}
 	/*Drawing the Y-axis label*/
 	mobileLinePlotSvg.append("text")
